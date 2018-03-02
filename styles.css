@@ -1,0 +1,249 @@
+body {
+  font-family: 'Avenir Next', sans-serif;
+  background: rgb(30, 23, 30);
+}
+
+p {
+	color: white;
+	text-align: center;
+	font-family: 'Avenir Next', sans-serif;
+}
+
+#title_splash {
+	color: white;
+  text-align: center;
+  font-size: 6vw;
+	height: 80vh;
+	margin: 20vh 0vh 0vh 0vh;
+	font-family: 'Avenir Next', sans-serif;
+}
+
+#video_splash {
+	background: rgb(42, 30, 42);
+	height: 100vh;
+	width: 100%;
+}
+
+#demo_video {
+	width: 60vw;
+	height: 33.75vw;
+	margin-left: 20vw;
+	margin-top: 20vh;
+}
+
+#download_link_splash {
+	width: 100%;
+	height: 200px;
+	background: rgb(30, 23, 30);
+}
+
+#download_link_splash img {
+	margin-top: 40px;
+	margin-left: 20%;
+	height: 40%;
+	width: 60%;
+}
+
+/*  == NAV == */
+
+.navigation {
+	padding: 20px 0px;
+}
+
+.navigation .clear {
+     float: clear;
+ }
+.navigation nav {
+     display: grid;
+ }
+
+.navigation ul:nth-child(1) {
+	grid-area: left;
+}
+
+.navigation ul:nth-child(2) {
+	grid-area: middle;
+}
+
+.navigation ul:nth-child(3) {
+	grid-area: right;
+}
+
+ /*Create a horizontal list with spacing*/
+ .navigation li {
+     display:inline-block;
+     margin-right: 1px;
+ }
+
+ /*Style for menu links*/
+ .navigation a {
+	 font-family: 'Futura', sans-serif;
+	 font-size: 20px;
+     display:block;
+     margin-right: 20px;
+     height: 30px;
+     text-align: center;
+     line-height: 30px;
+     color: rgb(163, 252, 145);
+	 text-decoration: none;
+	 border: 3px solid rgb(163, 252, 145);
+	 border-radius: 15px;
+	 padding: 0px 10px;
+ }
+ /*Active color*/
+ .navigation li a.active {
+ }
+ /*Hover state for top level links*/
+ .navigation li:hover a {
+	 background: rgba(255, 255, 255, 0.2);
+ }
+ /*Style 'show menu' label button and hide it by default*/
+ .navigation .show-menu {
+     text-decoration: none;
+     color: #fff;
+     background: #FF5035;
+     text-align: center;
+     padding: 10px 0;
+     display: none;
+ }
+ /*Hide checkbox*/
+ .navigation input[type=checkbox]{
+     display: none;
+ }
+ /*Show menu when invisible checkbox is checked*/
+ .navigation input[type=checkbox]:checked ~ #menu{
+     display: block;
+ }
+
+/*  == Characters == */
+#battle_area {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+	grid-template-areas:
+		'shapes			spacer2 		winner 				spacer3					distortions'
+		'shapes selected_shape battle selected_distortion distortions'
+		'shapes			spacer1			spacer1					spacer1					distortions';
+}
+
+.spacer1 {
+	grid-area: spacer1;
+}
+
+.spacer2 {
+	grid-area: spacer2;
+}
+
+.spacer3 {
+	grid-area: spacer3;
+}
+
+#shape_selection {
+	grid-area: shapes;
+}
+
+#enemy_lineup {
+	grid-area: distortions;
+}
+
+#shape_selection ul {
+	display: grid;
+	grid-template: auto auto / 1fr 1fr;
+}
+
+#enemy_lineup ul {
+	display: grid;
+	grid-template: auto auto / 1fr 1fr;
+}
+
+@media only screen and (max-width: 800px) {
+	#battle_area {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
+	
+    #shape_selection ul {
+			display: grid;
+			grid-template: auto / 1fr;
+		}
+		
+		#enemy_lineup ul {
+			display: grid;
+			grid-template: auto / 1fr;
+		}
+}
+
+#selected {
+	grid-area: selected_shape;
+}
+
+#battle_button {
+	margin-top: 50px;
+	grid-area: battle;
+}
+
+.button {
+	padding: 10px 0px 0px 0px;
+	height: 30px;
+	border: 3px solid rgb(163, 252, 145);
+	border-radius: 30px;
+	font-family: 'Futura', sans-serif;
+	font-size: 14px;
+	color: rgb(163, 252, 145);
+	text-align: center;
+}
+
+.button:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+#selected_enemy {
+	grid-area: selected_distortion;
+}
+
+#winner {
+	grid-area: winner;
+}
+
+.character_box {
+	height: 120px;
+	border: 3px solid rgb(163, 252, 145);
+	border-radius: 15px;
+	padding: 0px 5px 5px 5px;
+	margin: 10px;
+}
+
+#enemy_lineup .character_box {
+	border-color: rgb(238, 143, 238);
+}
+
+#selected_enemy .character_box {
+	border-color: rgb(238, 143, 238);
+}
+
+#enemy .character_box {
+	border-color: rgb(238, 143, 238);
+}
+
+ul {
+	list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+.character_box img {
+	display: block;
+	padding-top: 20px;
+  max-width: 80%;
+  max-height: 50%;
+  width: auto;
+  height: auto;
+	margin: auto;
+}
+
+.character_name {
+	text-align: center;
+	color: white;
+	font-family: 'Futura', sans-serif;
+	font-size: 15px;
+	height: 0px;
+}
