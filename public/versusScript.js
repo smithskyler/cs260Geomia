@@ -126,6 +126,7 @@ var app = new Vue({
 			}
 			this.timer = setInterval(this.pollFight, 2000);
 		},
+
 		pollFight: function() {
 			this.$store.dispatch('getOpponent', {
 				name: this.user_name,
@@ -156,19 +157,12 @@ var app = new Vue({
 				var timeout = setTimeout(this.unregister, 2000);
 			}
 		},
+
 		selectShape: function(shapeIndex) {
 			if (this.$store.getters.selected_shape < 0) {
 				this.selected_shape = shapeIndex;
 			}
 		},
-
-		// selectDistortion: function(distortionIndex) {
-		// 	this.selected_distortion = distortionIndex;
-		// },
-
-		// selectRandomDistortion: function() {
-		// 	this.selected_distortion = Math.floor(Math.random() * this.distortions.length);
-		// },
 
 		fight: function() {
 			this.$store.dispatch('fight', {
@@ -182,18 +176,12 @@ var app = new Vue({
 			this.selected_distortion = -1;
 			this.winner = '';
 			this.register();
-			// this.$store.dispatch('playAgain', {
-			// 	name: this.user_name,
-			// });
 		},
 
 		unregister: function() {
 			if (this.timer != undefined) {
 				clearInterval(this.timer);
 			}
-			// this.selected_shape = -1;
-			// this.selected_distortion = -1;
-			// this.winner = '';
 			this.$store.dispatch('unregister', {
 				name: this.user_name,
 			});

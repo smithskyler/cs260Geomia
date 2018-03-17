@@ -27,10 +27,7 @@ const store = new Vuex.Store({
 
   actions: {
     register(context, info) {
-      console.log("Register ==>");
-      console.log(name);
       axios.post("/api/register/" + info.name).then(response => {
-        console.log(" <== Registered!");
         context.commit('setRegistered', true);
         context.commit('setOpponent', undefined);
         context.commit('setShape', -1);
@@ -41,21 +38,16 @@ const store = new Vuex.Store({
     },
 
     getOpponent(context, name) {
-      console.log("Get Opponent ==>");
       axios.get("/api/opponent/" + name.name).then(response => {
-        console.log(" <== Get Opponent");
-        console.log(response.data);
         context.commit('setOpponent', response.data);
         return true;
       }).catch(err => {
-        console.log(" <== Has Opponent Failed…");
+        console.log(" <== Get Opponent Failed…");
       });
     },
 
     fight(context, info) {
-      console.log("Fight ==>");
       axios.put("/api/fight/" + info.name, info).then(response => {
-        console.log(" <== Fight " + response.data);
         context.commit('setShape', response.data);
         return true
       }).catch(err => {
@@ -63,21 +55,8 @@ const store = new Vuex.Store({
       });
     },
 
-    // playAgain(context, info) {
-    //   console.log("Replay ==>");
-    //   axios.post("/api/register/", info.name).then(response => {
-    //     context.commit('setOpponent', undefined);
-    //     context.commit('setShape', -1);
-    //     console.log(" <== Replay")
-    //   }).catch(err => {
-    //     console.log(" <== Replay Failed…")
-    //   })
-    // },
-
     unregister(context, info) {
-      console.log("unregister ==>");
       axios.delete("/api/player/" + info.name).then(response => {
-        console.log(" <== unregister")
         context.commit('setRegistered', false);
       }).catch(err => {
         console.log(" <== unregister Failed…")

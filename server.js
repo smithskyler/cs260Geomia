@@ -89,16 +89,6 @@ app.put('/api/fight/:name', (req, res) => {
   res.send("" + player.shape);
 });
 
-// app.post('/api/replay/:name', (req, res) => {
-//   let name = req.params.name;
-//   let player = players.filter(player => { return player.name == name })[0];
-//   player.shape = -1;
-//   let opponentName = opponent_pairs[name];
-//   delete opponent_pairs[name];
-//   delete opponent_pairs[opponentName];
-//   res.send("");
-// });
-
 app.delete('/api/player/:name', (req, res) => {
   let name = req.params.name;
   removePlayer(name);
