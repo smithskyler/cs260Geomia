@@ -93,15 +93,15 @@ var app = new Vue({
 		selectShape: function(shapeIndex) {
 			this.selected_shape = shapeIndex;
 		},
-		
+
 		selectDistortion: function(distortionIndex) {
 			this.selected_distortion = distortionIndex;
 		},
-		
+
 		selectRandomDistortion: function() {
 			this.selected_distortion = Math.floor(Math.random() * this.distortions.length);
 		},
-		
+
 		fight: function() {
 			if (this.selected_shape < 0 || this.selected_distortion < 0) {
 				return

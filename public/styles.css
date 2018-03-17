@@ -9,13 +9,24 @@ p {
 	font-family: 'Avenir Next', sans-serif;
 }
 
+.subheader {
+  font-size: 3vw;
+}
+
 #title_splash {
 	color: white;
   text-align: center;
   font-size: 6vw;
 	height: 80vh;
-	margin: 20vh 0vh 0vh 0vh;
 	font-family: 'Avenir Next', sans-serif;
+}
+
+#title_splash h1 {
+  margin: 20vh 0vh 0vh 0vh;
+}
+
+#title_splash img {
+  width: 15%;
 }
 
 #video_splash {
@@ -160,12 +171,12 @@ p {
 	#battle_area {
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	}
-	
+
     #shape_selection ul {
 			display: grid;
 			grid-template: auto / 1fr;
 		}
-		
+
 		#enemy_lineup ul {
 			display: grid;
 			grid-template: auto / 1fr;
@@ -179,6 +190,17 @@ p {
 #battle_button {
 	margin-top: 50px;
 	grid-area: battle;
+}
+
+.notification {
+	padding: 10px 0px 0px 0px;
+	height: 30px;
+	/* border: 3px solid rgb(163, 252, 145); */
+	/* border-radius: 30px; */
+	font-family: 'Futura', sans-serif;
+	font-size: 14px;
+	color: rgb(163, 252, 145);
+	text-align: center;
 }
 
 .button {
@@ -246,4 +268,19 @@ ul {
 	font-family: 'Futura', sans-serif;
 	font-size: 15px;
 	height: 0px;
+}
+
+input {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 0.5em;
+  padding: 12px 6px;
+  box-sizing: border-box;
+  border: 2px solid rgba(30, 23, 30, 0.7);
+  border-radius: 8px;
+  background-color: rgb(60, 46, 60);
+  font-size: 14pt;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 500;
+  color: white;
 }

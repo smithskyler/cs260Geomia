@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GE&#9673;MI&#9651;</title>
+  </head>
+  <body>
+    <div id="app">
+
+			<div class="navigation">
+				<nav>
+					<label for="show-menu" class="show-menu">Show Menu</label>
+					<input type="checkbox" id="show-menu" role="button">
+					<ul id="menu">
+	    			<li><a href="/">GE&#9673;MI&#9651;</a></li>
+						<li><a href="/battle.html">PRACTICE</a></li>
+            <li><a href="/versus.html">VERSUS</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div id="battle_area">
+
+				<div id="shape_selection">
+          <form v-on:submit.prevent>
+            <input type="text" v-model="user_name" disabled/>
+          </form>
+      		<ul>
+						<li v-for="(shape, index) in shapes">
+							<character :name=shape.name :image=shape.image v-on:click.native="selectShape(index)"></character>
+						</li>
+					</ul>
+				</div>
+
+				<div id="selected">
+					<div v-if="selected_shape > -1">
+						<character :name=shapes[selected_shape].name :image=shapes[selected_shape].image></character>
+					</div>
+					<div v-else>
+						<p>
+								Select Your Hero
+						</p>
+					</div>
+				</div>
+
+				<div id="battle_button">
+          <div class="button" v-if="!registered && winner== ''" v-on:click="register">
+						FIND OPPONENT
+					</div>
+          <div class="notification" v-else-if="registered && opponent_user_name == ''">
+						Waiting for opponent…<br />
+            <div class="button" v-on:click="unregister">
+  						CANCEL
+  					</div>
+					</div>
+          <div class="notification" v-else-if="registered && opponent_user_name != '' && selected_shape == -1">
+						Select Your Hero
+					</div>
+      		<div class="button" v-else-if="registered && opponent_user_name != '' && selected_shape > -1 && !sentShape" v-on:click="fight">
+						FIGHT
+					</div>
+          <div class="notification" v-else-if="winner == ''" v-on:click="fight">
+						Waiting for {{ opponent_user_name }}
+					</div>
+          <div class="button" v-else-if="!registered" v-on:click="playAgain">
+						PLAY AGAIN
+					</div>
+				</div>
+
+				<div id="winner">
+      		<div v-if="winner != ''">
+						<div v-if="winner.result == 1">
+							<character name="You Win" :image=winner.image></character>
+						</div>
+						<div v-else-if="winner.result == 0" id="enemy">
+							<character name="You Lose" :image=winner.image></character>
+						</div>
+            <div v-else>
+							<character name="Tie" :image=winner.image></character>
+						</div>
+					</div>
+				</div>
+
+				<div id="selected_enemy">
+					<div v-if="selected_distortion > -1">
+						<character :name=distortions[selected_distortion].name :image=distortions[selected_distortion].image></character>
+					</div>
+					<div v-else>
+						<p>
+								Select Distortion
+						</p>
+					</div>
+				</div>
+
+				<div id="enemy_lineup">
+          <form>
+            <input type="text" v-model="opponent_user_name" disabled />
+          </form>
+					<ul>
+						<li v-for="(distortion, index) in distortions">
+							<character :name=distortion.name :image=distortion.image></character>
+						</li>
+					</ul>
+				</div>
+
+				<div class="spacer1"></div>
+				<div class="spacer2"></div>
+				<div class="spacer3"></div>
+
+			</div>
+    </div>
+		<footer>
+		<a href="https://github.com/smithskyler/cs260Geomia">GitHub</a>
+		</footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./store.js"></script>
+    <script src="./versusScript.js"></script>
+  </body>
+</html>

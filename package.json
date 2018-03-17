@@ -1,0 +1,27 @@
+{
+  "name": "cs260geomia",
+  "version": "1.0.0",
+  "description": "In this assignment, you will use Vue to build an application that uses an API to browse XKCD comics.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smithskyler/cs260Geomia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smithskyler/cs260Geomia/issues"
+  },
+  "homepage": "https://github.com/smithskyler/cs260Geomia#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "vue": "^2.5.16",
+    "vuex": "^3.0.1"
+  }
+}

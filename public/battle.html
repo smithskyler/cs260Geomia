@@ -7,21 +7,21 @@
   </head>
   <body>
     <div id="app">
-			
+
 			<div class="navigation">
 				<nav>
 					<label for="show-menu" class="show-menu">Show Menu</label>
 					<input type="checkbox" id="show-menu" role="button">
 					<ul id="menu">
 	    			<li><a href="/">GE&#9673;MI&#9651;</a></li>
-						<li><a href="/battle.html">BATTLE</a></li>
-<!--						<li><a href="/reviews.html">REVIEWS</a></li>-->
+						<li><a href="/battle.html">PRACTICE</a></li>
+            <li><a href="/versus.html">VERSUS</a></li>
 					</ul>
 				</nav>
 			</div>
-			
+
 			<div id="battle_area">
-			
+
 				<div id="shape_selection">
       		<ul>
 						<li v-for="(shape, index) in shapes">
@@ -29,7 +29,7 @@
 						</li>
 					</ul>
 				</div>
-			
+
 				<div id="selected">
 					<div v-if="selected_shape > -1">
 						<character :name=shapes[selected_shape].name :image=shapes[selected_shape].image></character>
@@ -40,7 +40,7 @@
 						</p>
 					</div>
 				</div>
-			
+
 				<div id="battle_button">
       		<div class="button" v-if="selected_distortion > -1 && selected_shape > -1" v-on:click="fight">
 						FIGHT
@@ -49,7 +49,7 @@
 						RANDOM ENEMY
 					</div>
 				</div>
-				
+
 				<div id="winner">
       		<div v-if="winner != ''">
 						<div v-if="winner.shape">
@@ -60,7 +60,7 @@
 						</div>
 					</div>
 				</div>
-			
+
 				<div id="selected_enemy">
 					<div v-if="selected_distortion > -1">
 						<character :name=distortions[selected_distortion].name :image=distortions[selected_distortion].image></character>
@@ -71,7 +71,7 @@
 						</p>
 					</div>
 				</div>
-			
+
 				<div id="enemy_lineup">
 					<ul>
 						<li v-for="(distortion, index) in distortions">
@@ -79,11 +79,11 @@
 						</li>
 					</ul>
 				</div>
-				
+
 				<div class="spacer1"></div>
 				<div class="spacer2"></div>
 				<div class="spacer3"></div>
-				
+
 			</div>
     </div>
 		<footer>
